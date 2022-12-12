@@ -8,7 +8,8 @@ const schema = new mongoose.Schema({
     video: {type: String, required: true},
     date: {type: Date, required: true},
     buyed: [{type: mongoose.Types.ObjectId,ref:'users', required: true}],
-    rate: {type: Number, required:true}
+    rate: {type: Number, required:true},
+    category: [{type: String, required:true}]
 })
 
 const Game = mongoose.model('games',schema)

@@ -9,8 +9,9 @@ const games = [
     video: "https://cdn.akamai.steamstatic.com/steam/apps/256912615/movie480_vp9.webm?t=1666665313",
     price: 40,
     date: "2022-12-12",
-    buyed: ["6372494878cf1c151a1a4f67"],
+    buyed: ["6397862064e1cf96b51d39c8","6397862064e1cf96b51d39c6","6397862064e1cf96b51d39c7"],
     rate: 4.5,
+    category:["Action", "Adventure"]
   },
   {name: "God of War",
     description:
@@ -21,8 +22,9 @@ const games = [
     video: "https://cdn.akamai.steamstatic.com/steam/apps/256864004/movie480_vp9.webm?t=1639001817",
     price: 60,
     date: "2022-09-23",
-    buyed: ["6372494878cf1c151a1a4f67"],
+    buyed: ["6397862064e1cf96b51d39c8","6397862064e1cf96b51d39c7"],
     rate: 5,
+    category:["Action", "Adventure", "RPG"]
   },
   {name: "Far Cry 4",
     description:
@@ -33,8 +35,9 @@ const games = [
     video: "https://cdn.akamai.steamstatic.com/steam/apps/2035525/movie480.webm?t=1447365062",
     price: 30,
     date: "2011-03-24",
-    buyed: ["6372494878cf1c151a1a4f67"],
+    buyed: ["6397862064e1cf96b51d39c8","6397862064e1cf96b51d39c7"],
     rate: 4,
+    category:[ "Action", "Adventure"]
   },
   {name: "Cyberpunk",
     description:
@@ -45,8 +48,9 @@ const games = [
     video: "https://cdn.akamai.steamstatic.com/steam/apps/256904417/movie480_vp9.webm?t=1662480377",
     price: 60,
     date: "2020-12-8",
-    buyed: ["6372494878cf1c151a1a4f67"],
+    buyed: ["6397862064e1cf96b51d39c8"],
     rate: 3.5,
+    category:["RPG"]
   },
 ];
 
@@ -65,7 +69,8 @@ games.forEach( e =>{
         date: e.date,
         buyed: e.buyed,
         rate: e.rate,
-        video: e.video
+        video: e.video,
+        category:e.category
     })
 })
 
