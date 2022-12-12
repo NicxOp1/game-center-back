@@ -40,6 +40,18 @@ const controller = {
                 message: error.message
             })
         }
+    },
+    create:async (req,res)=>{
+        try {
+            let newGame = await Game.create(req.body)
+                res.status(201).json({
+                    success:true,
+                    newGame,
+                    res: "Game created successfully"
+                })
+        } catch (error) {
+            
+        }
     }
 }
 
