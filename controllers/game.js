@@ -73,6 +73,23 @@ const controller = {
                 message: error.message
             })
         }
+    },
+    destroy: async (req,res)=>{
+        let {id} = req.params
+        try {
+            const game = await Game.findOneAndRemove({_id:id})
+
+            res.status(200).json({
+                success:true,
+                game: game.name,
+                res: "Game destroyed successfully"
+            })
+        } catch (error) {
+            res.status(404).json({
+                success: false,
+                message: error.message
+            })
+        }
     }
 }
 
