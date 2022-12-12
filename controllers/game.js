@@ -50,7 +50,28 @@ const controller = {
                     res: "Game created successfully"
                 })
         } catch (error) {
-            
+            res.status(404).json({
+                success: false,
+                message: error.message
+            })
+        }
+    },
+    update:async(req,res)=>{
+        let {id} = req.params
+        try {
+            const game = await Game.findOneAndUpdate({_id:id},req.body, {new: true})
+
+            res.status(200).json({
+                success:true,
+                game,
+                res: "Game edited successfully"
+            })
+
+        } catch (error) {
+            res.status(404).json({
+                success: false,
+                message: error.message
+            })
         }
     }
 }
