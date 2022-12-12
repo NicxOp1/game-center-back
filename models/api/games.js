@@ -1,11 +1,12 @@
 const games = [
   {
-    name: "Resident Evil 4",
-    description:
+      name: "Resident Evil 4",
+      description:
       "Resident Evil 4 preserves the essence of the original game, while introducing updated game mechanics,a reimagined story, and stunning next-gen graphics that make it in the ultimate survival horror experience where life and death, terror and catharsis intersect.",
     photo: [
       "https://image.api.playstation.com/vulcan/ap/rnd/202210/0712/BiS5QP6h4506JHyJlZlVzK9D.jpg",
     ],
+    video: "https://cdn.akamai.steamstatic.com/steam/apps/256912615/movie480_vp9.webm?t=1666665313",
     price: 40,
     date: "2022-12-12",
     buyed: ["6372494878cf1c151a1a4f67"],
@@ -17,6 +18,7 @@ const games = [
     photo: [
       "https://i.blogs.es/4c3cf2/godofwarragnarok/840_560.jpeg",
     ],
+    video: "https://cdn.akamai.steamstatic.com/steam/apps/256864004/movie480_vp9.webm?t=1639001817",
     price: 60,
     date: "2022-09-23",
     buyed: ["6372494878cf1c151a1a4f67"],
@@ -28,6 +30,7 @@ const games = [
     photo: [
       "https://img.hype.games/cdn/4fafabc9-6899-4efc-8018-412ef4332ed5COVER---[Ubisoft]-FAR-CRY-4.jpg",
     ],
+    video: "https://cdn.akamai.steamstatic.com/steam/apps/2035525/movie480.webm?t=1447365062",
     price: 30,
     date: "2011-03-24",
     buyed: ["6372494878cf1c151a1a4f67"],
@@ -39,6 +42,7 @@ const games = [
     photo: [
       "https://generacionxbox.com/wp-content/uploads/2020/12/Cyberpunk-2077-4.jpg",
     ],
+    video: "https://cdn.akamai.steamstatic.com/steam/apps/256904417/movie480_vp9.webm?t=1662480377",
     price: 60,
     date: "2020-12-8",
     buyed: ["6372494878cf1c151a1a4f67"],
@@ -60,7 +64,8 @@ games.forEach( e =>{
         price: e.price,
         date: e.date,
         buyed: e.buyed,
-        rate: e.rate
+        rate: e.rate,
+        video: e.video
     })
 })
 

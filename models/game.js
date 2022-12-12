@@ -5,6 +5,7 @@ const schema = new mongoose.Schema({
     description: {type: String, required:true},
     photo: [{type: String, required: true}],
     price: {type: Number, required: true},
+    video: {type: String, required: true},
     date: {type: Date, required: true},
     buyed: [{type: mongoose.Types.ObjectId,ref:'users', required: true}],
     rate: {type: Number, required:true}
