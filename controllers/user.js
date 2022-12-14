@@ -80,6 +80,7 @@ const controller = {
         let userToken = {
           email: user.email,
           role: user.role,
+          name: user.name,
           lastName: user.lastName,
           logged: user.logged,
           photo: user.photo,
