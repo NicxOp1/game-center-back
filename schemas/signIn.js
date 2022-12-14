@@ -4,7 +4,7 @@ const schema = joi.object({
             email: joi
             .string()
             .required()
-            .min(2)
+            .min(5)
             .messages({
                 "any.required": "This field is required.",
                 "string.empty": "This field is empty, please, introduce a email.",

@@ -1,8 +1,9 @@
 const joi = require("joi");
 
 const schema = joi.object({
-    name: joi.string().required().messages({
+    name: joi.string().min(2).required().messages({
         "string.empty": "Name is required",
+        'string.min': 'This field is required, please, introduce a email with a minimum of 2 letters.',     
         "any.required": "Name is required",
     }),
     description: joi.string().required().messages({
