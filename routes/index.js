@@ -1,10 +1,10 @@
 let router =require('express').Router()
 let games = require('./games.js')
 let users = require('./users.js')
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'En expresss' });
-});
+let comments = require ('./comments')
+
 router.use('/auth',users)
 router.use('/games',games)
+router.use('/comments',comments)
+
 module.exports = router;
