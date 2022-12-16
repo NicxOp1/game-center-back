@@ -107,6 +107,9 @@ const controller = {
           user: {
             id: user.id,
             name: user.name,
+            lastName: user.lastName,
+            email: user.email,
+            age: user.age,
             role: user.role,
             photo: user.photo,
             logged: user.logged,
