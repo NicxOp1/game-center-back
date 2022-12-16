@@ -48,7 +48,7 @@ const controller = {
         { new: true }
       );
       if (user) {
-        return res.redirect("http://localhost:8080/");
+        return res.redirect("http://localhost:3000/");
       }
       return userNotFoundResponse(req, res);
     } catch (error) {
@@ -71,7 +71,9 @@ const controller = {
           {
             id: userDB._id,
             name: userDB.name,
+            lastName: user.lastName,
             photo: userDB.photo,
+            age: user.age,
             logged: userDB.logged,
           },
           process.env.KEY_JWT,
@@ -81,6 +83,7 @@ const controller = {
           email: user.email,
           role: user.role,
           name: user.name,
+          age: user.age,
           lastName: user.lastName,
           logged: user.logged,
           photo: user.photo,
@@ -108,17 +111,19 @@ const controller = {
             id: user.id,
             name: user.name,
             lastName: user.lastName,
-            email: user.email,
-            age: user.age,
-            role: user.role,
             photo: user.photo,
+            age: user.age,
+            email: user.email,
+            role: user.role,
             logged: user.logged,
           },
+          
         },
         succes: true,
         message: "Welcome " + user.name + " !",
+        
       });
-    } catch (error) {
+        } catch (error) {
       next(error);
     }
   },
