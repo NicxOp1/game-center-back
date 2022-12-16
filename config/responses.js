@@ -1,7 +1,6 @@
 function userExistsResponse(req,res) {
     return res.status(400).json({
         success: false,
-
         message: 'User already exists'
     })
 }
@@ -53,7 +52,6 @@ function invalidCredentialsResponse(req,res) {
 function verifyResponse(req,res) {
     return res.status(401).json({
         success: false,
-
         message: 'Please, verify your email account and try again!'
 
     })
