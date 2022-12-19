@@ -105,6 +105,7 @@ const controller = {
   loginWithToken: async (req, res, next) => {
     let { user } = req;
     try {
+      console.log(user)
       return res.json({
         response: {
           user: {
@@ -117,8 +118,9 @@ const controller = {
             role: user.role,
             logged: user.logged,
           },
-          
-        },
+       
+        }, 
+        
         succes: true,
         message: "Welcome " + user.name + " !",
         
