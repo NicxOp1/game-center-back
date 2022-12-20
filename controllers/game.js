@@ -40,6 +40,29 @@ const controller = {
                 message: error.message
             })
         }
+    },readDetails: async(req,res)=>{
+        let {id}=req.params
+        try {
+            let gamesDetails = await Game.findOne({_id:id})
+            if (gamesDetails) {
+                res.status(200).json({
+                    game: gamesDetails,
+                    success: true,
+                    message: 'Game id found'
+                })
+            }else{
+                res.status(400).json({
+                    success:false,
+                    message:"Game id didn't found"
+                })
+            }
+        } catch (error) {
+            res.status(404).json({
+                success: false,
+                message :error.message
+            })
+        }
+        
     },
     create:async (req,res)=>{
         try {
