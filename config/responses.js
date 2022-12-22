@@ -5,6 +5,13 @@ function userExistsResponse(req,res) {
     })
 }
 
+function orderExistsResponse(req,res) {
+    return res.status(400).json({
+        success: false,
+        message: 'Order Already exist'
+    })
+}
+
 function userSignedUpResponse(req,res) {
     return res.status(201).json({
         success: true,
@@ -65,4 +72,5 @@ module.exports = {
     mustSignInResponse,
     invalidCredentialsResponse,
     verifyResponse,
+    orderExistsResponse
 }
