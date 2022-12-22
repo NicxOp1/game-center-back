@@ -41,8 +41,9 @@ const notificationController = {
                 gameId: body.items.map( element => element.id),
                 orderId: body.id
             }
-
             axios.post(`${apiUrl}/payment/merchantOrder/${userId}`,orderData)
+
+            
           }
         }
       });

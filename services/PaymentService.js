@@ -1,5 +1,5 @@
 const axios = require("axios");
-
+const apiUrl =require('../apiUrl')
 class PaymentService {
   async createPayment(req,res) {
     const url = "https://api.mercadopago.com/checkout/preferences";
@@ -24,11 +24,11 @@ class PaymentService {
           })
       ,
       back_urls: {
-        failure: "http://localhost:3000/Library/Store",
+        failure: "http://localhost:3000/Store",
         // pending: "/pending",
         success: "http://localhost:3000/Library"
       },
-      notification_url: `https://6673-2800-810-557-8b6d-684d-a3c7-e446-3423.sa.ngrok.io/payment/notification/${user}`
+      notification_url: `${apiUrl}/payment/notification/${user}`
     }; 
 
     const payment = await axios.post(url, body, {
