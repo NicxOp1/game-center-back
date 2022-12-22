@@ -10,11 +10,11 @@ const schema = joi.object({
         "string.empty": "The field 'description' is required, please enter it",
         "any.required": "The field 'description' is required, please enter it",
     }),
-    photo: joi.string().required().uri().messages({
+    photo: joi.array().items(joi.string().required().uri().messages({
         'string.empty': 'Photo is required',
         'string.uri': 'Photo must be a valid URL',
         'any.required': 'Photo is required',
-        }),
+        })),
     price: joi.number().min(0).required().messages({
         "number.base": "The field 'price' must be a number",
         "number.empty": "The field 'price' is required, please enter it",
@@ -31,12 +31,8 @@ const schema = joi.object({
         "date.empty": "The field 'date' is required, please enter it",
         "any.required": "The field 'date' is required, please enter it",
     }),
-    rate: joi.number().min(0).required().messages({
-        "number.base": "The field 'rate' must be a number",
-        "number.empty": "The field 'rate' is required, please enter it",
-        "any.required": "The field 'rate' is required, please enter it",
-        "number.min": "The field 'rate' must be greater than or equal to 0",
-    }),
+    category:joi.array().items(joi.string()),
+    rate: joi.array(),
     buyed: joi.any()
     
 });

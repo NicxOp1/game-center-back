@@ -7,6 +7,15 @@ var logger = require('morgan');
 require('./config/database/database')
 const cors = require('cors')
 
+
+
+const mercadopago = require("mercadopago");
+
+mercadopago.configure({
+  access_token: process.env.ACCESS_TOKEN,
+});
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
