@@ -1,5 +1,8 @@
 const mercadopago = require("mercadopago");
 const MerchantOrder= require('../models/MerchantOrder')
+const axios = require("axios")
+const apiUrl =  require('../apiUrl')
+const Game= require('../models/game')
 // const mercardoPagoPaymentAmount = require('../middlewares/mercadoPago/mercadoPagoPaymentAmount')
 
 const notificationController = {
@@ -34,7 +37,12 @@ const notificationController = {
         if (element.status === "approved") {
           paidAmount += element.transaction_amount;
           if (paidAmount >= element.total_paid_amount) {
-            console.log(body.id);
+            let orderData = {
+                gameId: body.items.map( element => element.id),
+                orderId: body.id
+            }
+
+            axios.post(`${apiUrl}/payment/merchantOrder/${userId}`,orderData)
           }
         }
       });
@@ -42,7 +50,6 @@ const notificationController = {
   },
   create: async (req,res)=>{
     let {body} = req
-    console.log(body);
     try {
         let newOrder = await MerchantOrder.create(body)
             res.status(201).json({
