@@ -3,10 +3,13 @@ const MerchantOrder= require('../models/MerchantOrder')
 const axios = require("axios")
 const apiUrl =  require('../apiUrl')
 const Game= require('../models/game')
+const orderAlredyExist = require('../middlewares/mercadoPago/orderExist')
+
+
 // const mercardoPagoPaymentAmount = require('../middlewares/mercadoPago/mercadoPagoPaymentAmount')
 
 const notificationController = {
-  notification: async (req, res) => {
+  notification: async (req, res,next) => {
     let { userId } = req.params;
     let topic = req.query.topic;
     // console.log(topic);
@@ -41,8 +44,17 @@ const notificationController = {
                 gameId: body.items.map( element => element.id),
                 orderId: body.id
             }
-            axios.post(`${apiUrl}/payment/merchantOrder/${userId}`,orderData)
-
+            req.body = {
+              ...req.body,
+              orderData
+            }
+            // let newOrder = MerchantOrder.create(orderData)
+            // res.status(201).json({
+            //     success:true,
+            //     newOrder,
+            //     res: "Order created successfully"
+            // })
+            next()
             
           }
         }

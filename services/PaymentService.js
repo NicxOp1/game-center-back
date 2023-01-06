@@ -28,7 +28,7 @@ class PaymentService {
         // pending: "/pending",
         success: "http://localhost:3000/Library"
       },
-      notification_url: `${apiUrl}/payment/notification/${user}`
+      notification_url: `https://d021-2800-810-557-8b6d-5fe-b80e-a04a-815a.sa.ngrok.io/payment/notification/${user}`
     }; 
 
     const payment = await axios.post(url, body, {

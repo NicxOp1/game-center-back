@@ -9,8 +9,8 @@ router.post("/", function (req, res, next) {
 
     PaymentInstance.getPaymentLink(req, res);
 });
-router.post('/notification/:userId', notification)
-router.post('/merchantOrder/:userId',orderAlredyExist,create)
+router.post('/notification/:userId',notification,orderAlredyExist,create)
+// router.post('/merchantOrder/:userId',)
 router.get('/order',find)
 
 module.exports = router;

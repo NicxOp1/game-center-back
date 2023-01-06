@@ -9,18 +9,36 @@ async function findAndUpdate(element,userId){
 }
 
 
-async function accountExists(req, res, next) {
+async function orderExists(req, res, next) {
     let {userId} = req.params
-    const order = await MerchantOrder.findOne({orderId: req.body.orderId})
+    let {orderData} = req.body
+    console.log(orderData);
+    
+    console.log("---------------------");
+    console.log("---------------------");
+
+
+    console.log(orderData);
+    console.log("---------------------");
+    console.log("---------------------");
+    let filter = {
+        orderId: await orderData.orderId
+    }
+
+    let gameUpdate = {
+        gameId: await orderData.gameId
+    }
+    const order = await MerchantOrder.findOne(filter)
     if (order) {
     //   return  orderExistsResponse(req,res)
     return console.log("orderExist");
     }   
-    // 
-    await req.body.gameId.forEach(element => {
+    console.log(gameUpdate)
+    await gameUpdate.gameId.forEach(element => {
         findAndUpdate(element,userId)
     });
-    return next()
+    next()
+
 }
 
-module.exports =  accountExists
+module.exports =  orderExists
